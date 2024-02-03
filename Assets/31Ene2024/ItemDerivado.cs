@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class ItemDerivado : ItemBase
 {
-    // Start is called before the first frame update
-    void Start()
+    // Propiedades adicionales específicas de los objetos derivados
+    public enum Tipo
     {
-        
+        Comida,
+        Material,
+        Arma
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public enum Rareza
     {
-        
+        Normal,
+        Raro,
+        Legendario
+    }
+
+
+    public enum Habilidad
+    {
+        AumentarVida,
+        AumentarDefensa,
+        AumentarAtaque
+    }
+
+    // Constructor de la clase ItemDerivado
+    public ItemDerivado(string nombre, Sprite sprite, int vida, string descripcion, int cantidad, Tipo tipo, Rareza rareza, Habilidad habilidad)
+        : base(nombre, sprite, vida, descripcion, cantidad)
+    {
+        // Asignar los valores de las propiedades adicionales específicas de los objetos derivados
+        this.tipo = tipo;
+        this.rareza = rareza;
+        this.habilidad = habilidad;
     }
 }
