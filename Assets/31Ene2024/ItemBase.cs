@@ -4,46 +4,54 @@ using UnityEngine;
 
 public class ItemBase : MonoBehaviour
 {
-    //public ItemDerivado espadaDiamante;
-    //public ItemDerivado2 polloAsado;
-    //public ItemDerivado3 obsidiana;
-
-    //private PropiedadesGenerales propiedadesGenerales;
-
-    //public void setPropiedadesGenerales(string nombre, int vida, string descripcion, int cantidad)
-    //{
-    //    //Inicializo la variable
-    //    propiedadesGenerales = new PropiedadesGenerales();
-    //    //Asigna valores a las variables
-    //    propiedadesGenerales.nombre = nombre;
-    //    propiedadesGenerales.vida = vida;
-    //    propiedadesGenerales.descripcion = descripcion;
-    //    propiedadesGenerales.cantidad = cantidad;
-
-    //}
-
-    //public PropiedadesGenerales getPropiedadesGenerales()
-    //{
-    //    return propiedadesGenerales;
-    //}
+    public ItemDerivado espadaDiamante;
+    public ItemDerivado2 polloAsado;
+    public ItemDerivado3 obsidiana;
 
 
-    //private void Start()
-    //{
-    //    espadaDiamante = new ItemDerivado();
+    private PropiedadesGenerales propiedadesGenerales;
+    public void setPropiedadesGenerales(string nombre, int vida, string descripcion, int cantidad)
+    {
+        //Inicializo la variable
+        propiedadesGenerales = new PropiedadesGenerales();
+        //Asigna valores a las variables
+        propiedadesGenerales.nombre = nombre;
+        propiedadesGenerales.vida = vida;
+        propiedadesGenerales.descripcion = descripcion;
+        propiedadesGenerales.cantidad = cantidad;
 
-    //    espadaDiamante.setPropiedades("Arma", "Legendario", "Aumentar ataque");
+    }
+
+    public PropiedadesGenerales getPropiedadesGenerales()
+    {
+        return propiedadesGenerales;
+    }
 
 
-    //    polloAsado = new ItemDerivado2();
+    private void Start()
+    {
+        espadaDiamante = new ItemDerivado();
 
-    //    polloAsado.setPropiedades("Comida", "Normal", "Aumentar vida");
+        espadaDiamante.setPropiedades("Arma", "Legendario", "Aumentar ataque");
+
+        //espadaDiamante.PrintPropierties();
 
 
-    //    obsidiana = new ItemDerivado3();
+        polloAsado = new ItemDerivado2();
 
-    //    obsidiana.setPropiedades("Material", "Raro", "Aumentar defensa");
+        polloAsado.setPropiedades("Comida", "Normal", "Aumentar vida");
+
+        //polloAsado.PrintPropierties();
 
 
-    //}
+        obsidiana = new ItemDerivado3();
+
+        obsidiana.setPropiedades("Material", "Raro", "Aumentar defensa");
+
+        //obsidiana.PrintPropierties();
+
+        
+    }
+
+
 }
