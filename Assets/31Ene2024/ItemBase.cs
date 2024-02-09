@@ -5,11 +5,29 @@ using UnityEngine;
 public class ItemBase : MonoBehaviour
 {
     //Propiedades comunes de los objetos en el inventario
-    public string nombre;
+    protected string nombre;
+    //buscar como funciona un sprite
     public Sprite sprite;
-    public int vida;
-    public string descripcion;
-    public int cantidad;
+    protected int vida;
+    protected string descripcion;
+    protected int cantidad;
+    protected List<string,int> Item;
+
+    //Método encargado de inicializar las variables
+    public virtual void Init()
+    {
+        Item = new List<string,int>();
+    }
+
+    public virtual void AddItem(string item, int item)
+    {
+        Item.Add(item);
+    }
+
+    public virtual List<string,int> GetItem()
+    {
+        return Item;
+    }
 
     //Constructor de la clase de ItemBase
     public ItemBase(string nombre, Sprite sprite, int vida, string descripcion, int cantidad)
