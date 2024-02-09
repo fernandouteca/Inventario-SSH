@@ -5,72 +5,66 @@ using static UnityEditor.Progress;
 
 public class Inventario : MonoBehaviour
 {
-    // Lista para almacenar los objetos del inventario
-    public List<Item> items = new List<Item>();
+    public List<GameObject> prefabs;
+    private Vector3 offset;
+    private bool estaArrastrando = false;
+    public GameObject imagenBasura;
 
-    // Método para agregar un objeto al inventario
-    public void AgregarItem(Item item)
+    void OnMouseDown()
     {
-        // Variable para verificar si el item ya existe en el inventario
-        bool itemExiste = false;
-
-        // Recorrer la lista de items en el inventario
-        foreach (Item i in items)
+        if (prefabs.Count > 0)
         {
-            // Si el nombre del item coincide con el nombre del item a agregar
-            if (i.nombre == item.nombre)
-            {
-                // Incrementar la cantidad del item existente en el inventario
-                i.cantidad += item.cantidad;
-                itemExiste = true;
-                break;
-            }
-        }
-
-        // Si el item no existe en el inventario, agregarlo a la lista
-        if (!itemExiste)
-        {
-            items.Add(item);
+            offset = transform.position - Input.mousePosition;
+            estaArrastrando = true;
         }
     }
 
-    // Método para eliminar una cantidad específica de un objeto del inventario
-    public void EliminarItem(Item item, int cantidad)
+    void OnMouseDrag()
     {
-        // Recorrer la lista de items en el inventario
-        foreach (Item i in items)
+        if (estaArrastrando)
         {
-            // Si el nombre del item coincide con el nombre del item a eliminar
-            if (i.nombre == item.nombre)
-            {
-                // Restar la cantidad especificada del item en el inventario
-                i.cantidad -= cantidad;
-
-                // Si la cantidad del item es menor o igual a cero, eliminarlo del inventario
-                if (i.cantidad <= 0)
-                {
-                    items.Remove(i);
-                }
-
-                break;
-            }
+            transform.position = Input.mousePosition + offset;
         }
     }
 
-    // Método para obtener la cantidad de un objeto en el inventario
-    public int GetCantidad(Item item)
-    {
-        // Recorrer la lista de items en el inventario
-        foreach (Item i in items)
-        {
-            // Si el nombre del item coincide con el nombre del item buscado, devolver la cantidad
-            if (i.nombre == item.nombre)
-            {
-                return i.cantidad;
-            }
-        }
+    //void OnMouseUp()
+    //{
+    //    estaArrastrando = false;
 
-        // Si el item no se encuentra en el inventario, devolver 0
-        return 0;
-    }
+    //    if (prefabs.Count > 0)
+    //    {
+    //        GameObject prefabSeleccionado = null;
+    //        Transform transformPadre = null;
+    //        bool estaDentroArea = false;
+
+    //        // Iteramos sobre cada prefab en la lista
+    //        foreach (GameObject prefab in prefabs)
+    //        {
+    //            // Si el prefab actual está dentro del área, lo seleccionamos
+    //            if (prefab.GetComponent<DraggableArea>().estaDentroArea(transform.position))
+    //            {
+    //                prefabSeleccionado = prefab;
+    //                transformPadre = prefab.transform;
+    //                estaDentroArea = true;
+    //            }
+    //        }
+
+    //        // Si hemos encontrado un prefab que está dentro del área, lo asignamos al script PrefabHolder
+    //        if (prefabSeleccionado != null)
+    //        {
+    //            prefabSeleccionado.GetComponent<PrefabHolder>().prefab = this.gameObject;
+    //            transform.SetParent(transformPadre);
+    //        }
+    //        // Si no hay ningún prefab dentro del área y el objeto se ha soltado sobre la imagen de basura, destruimos el objeto
+    //        else if (imagenBasura != null && imagenBasura.GetComponent<DraggableArea>().estaDentroArea(transform.position))
+    //        {
+    //            Destroy(this.gameObject);
+    //        }
+    //        // Si no hay ningún prefab dentro del área, destruimos el objeto actual
+    //        else
+    //        {
+    //            Destroy(this.gameObject);
+    //        }
+    //    }
+    //}
 }

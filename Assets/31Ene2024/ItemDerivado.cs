@@ -4,37 +4,30 @@ using UnityEngine;
 
 public class ItemDerivado : ItemBase
 {
-    // Propiedades adicionales específicas de los objetos derivados
-    public enum Tipo
-    {
-        Comida,
-        Material,
-        Arma
-    }
+    //private Propiedades propiedades;
+
+    //public ItemBase espadaDiamante;
 
 
-    public enum Rareza
-    {
-        Normal,
-        Raro,
-        Legendario
-    }
+    //private void Start()
+    //{
+    //    espadaDiamante = new ItemBase();
+
+    //    espadaDiamante.setPropiedadesGenerales("Espada de diamante", 7, "Arma cuerpo a cuerpo, utilizada para hacerle daño principalmente a criaturas y/o jugadores ", 1);
+    //}
 
 
-    public enum Habilidad
-    {
-        AumentarVida,
-        AumentarDefensa,
-        AumentarAtaque
-    }
+    //// Constructor de la clase ItemDerivado
+    //public void setPropiedades(string tipo, string rareza, string habilidad)
+    //{
+    //    propiedades = new Propiedades();
+    //    propiedades.tipo = tipo;
+    //    propiedades.rareza = rareza;
+    //    propiedades.habilidad = habilidad;
+    //}
 
-    // Constructor de la clase ItemDerivado
-    public ItemDerivado(string nombre, Sprite sprite, int vida, string descripcion, int cantidad, Tipo tipo, Rareza rareza, Habilidad habilidad)
-        : base(nombre, sprite, vida, descripcion, cantidad)
-    {
-        // Asignar los valores de las propiedades adicionales específicas de los objetos derivados
-        this.tipo = tipo;
-        this.rareza = rareza;
-        this.habilidad = habilidad;
-    }
+    //public Propiedades getPropiedades()
+    //{ 
+    //    return propiedades; 
+    //}
 }

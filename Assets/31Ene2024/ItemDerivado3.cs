@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class ItemDerivado3 : ItemBase
 {
+    //private Propiedades propiedades;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //public ItemBase obsidiana;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+    //private void Start()
+    //{
+    //    obsidiana = new ItemBase();
+
+    //    obsidiana.setPropiedadesGenerales("Obsidiana", 50, "Bloque de construcción negro-morado que cuenta con una gran resistencia", 1);
+    //}
+
+
+    //// Constructor de la clase ItemDerivado
+    //public void setPropiedades(string tipo, string rareza, string habilidad)
+    //{
+    //    propiedades = new Propiedades();
+    //    propiedades.tipo = tipo;
+    //    propiedades.rareza = rareza;
+    //    propiedades.habilidad = habilidad;
+    //}
+
+    //public Propiedades getPropiedades()
+    //{
+    //    return propiedades;
+    //}
 }
